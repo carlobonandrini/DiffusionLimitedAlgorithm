@@ -8,14 +8,14 @@
 
 void CalculateSeed();
 
-static const int winSize = 800;
+static const int winSize = 200;
 static std::vector<Seed> seeds;
 static std::vector<Point> tree;
 static bool seeding = true;
 
 int main() {
   sf::RenderWindow window(sf::VideoMode(winSize, winSize),
-                          "DIffusion Limited Visualization");
+                          "Diffusion Limited Visualization");
 
   sf::Image image;
   image.create(winSize, winSize, sf::Color(0, 0, 0));
@@ -42,12 +42,14 @@ int main() {
     while (window.pollEvent(event)) {
       if (event.type == sf::Event::Closed) {
         window.close();
-        seeding = false;
-        worker.join();
+        if (seeding) {
+          seeding = false;
+          worker.join();
+        }
       }
     }
 
-    if (seeds.size() == 0) {
+    if (seeds.size() == 0 && seeding) {
       seeding = false;
       worker.join();
     }
