@@ -1,25 +1,23 @@
 #pragma once
-#include<vector>
-#include<chrono>
-#include<random>
+#include <chrono>
+#include <random>
+#include <vector>
 
-struct Point
-{
-	int x, y;
+struct Point {
+  int x, y;
 };
 
-class Seed
-{
+class Seed {
 public:
-	Seed() : x(0), y(0) {}
-	Seed(int x, int y) : x(x), y(y) {}
+  Seed() : x(0), y(0) {}
+  Seed(int x, int y) : x(x), y(y) {}
 
-	bool isCompleted(std::vector<Point> tree);
+  bool isCompleted(std::vector<Point> tree);
 
-	Point point() { return Point{ x, y }; }
+  Point point() { return Point{x, y}; }
 
-	void move(int winSize);
+  void move(int winSize);
+
 private:
-	int x, y;
+  int x, y;
 };
-

@@ -29,7 +29,7 @@ int main() {
 
   Point startP{winSize / 2, winSize / 2};
   tree.push_back(startP);
-  int maxSeeds = winSize * winSize / 9;
+  int maxSeeds = winSize * winSize / 4;
   seeds.reserve(maxSeeds);
 
   for (int i = 0; i < maxSeeds; i++)
