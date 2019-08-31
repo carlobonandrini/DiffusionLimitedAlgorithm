@@ -1,1 +1,1 @@
-# DiffusionLimitedAlgorithm Visualizationls
+# DiffusionLimitedAlgorithm Visualization
